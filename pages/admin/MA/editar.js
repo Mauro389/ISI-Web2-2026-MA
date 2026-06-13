@@ -22,7 +22,7 @@ btnEditar.addEventListener('click', async () => {
         const request = new TeamRequest(nombre, desc);
         const teamActualizado = await teamsService.update(id, request); // PUT /teams/{id}
 
-        resultado.textContent = `✅ Equipo ${teamActualizado.id} actualizado correctamente.`;
+        resultado.textContent = ` Equipo ${teamActualizado.id} actualizado correctamente.`;
     } catch (error) {
         resultado.textContent = `Error: ${error.message}`;
     }

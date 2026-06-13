@@ -17,11 +17,11 @@ btnCrear.addEventListener('click', async () => {
     }
 
     try {
-        // TeamRequest empaqueta los datos en el formato que espera el servidor
+        // TeamRequest 
         const request = new TeamRequest(nombre, desc);
         const teamCreado = await teamsService.create(request); // POST /teams
 
-        resultado.textContent = `✅ Equipo creado con ID: ${teamCreado.id}`;
+        resultado.textContent = ` Equipo creado con ID: ${teamCreado.id}`;
         inputNombre.value = '';
         inputDesc.value   = '';
     } catch (error) {

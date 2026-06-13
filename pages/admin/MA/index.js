@@ -19,10 +19,10 @@ const inpNombre = document.getElementById('inp-nombre');
 const inpDesc   = document.getElementById('inp-desc');
 const btnAgregar = document.getElementById('btn-agregar');
 
-// ── estado local ───────────────────────────────────────
+// estado local 
 let equipos = [];
 
-// ── LISTAR ─────────────────────────────────────────────
+// LISTAR
 async function cargar() {
     try {
         const res = await fetch(BASE_URL, {
@@ -37,7 +37,7 @@ async function cargar() {
     }
 }
 
-// ── RENDER ─────────────────────────────────────────────
+// RENDER
 function render() {
     tbody.innerHTML = '';
     equipos.forEach(eq => tbody.appendChild(crearFila(eq)));
@@ -63,7 +63,7 @@ function crearFila(eq) {
     return tr;
 }
 
-// ── EDITAR inline ──────────────────────────────────────
+// EDITAR
 function modoEdicion(tr, eq) {
     tr.querySelector('.celda-nombre').innerHTML = `<input type="text" value="${eq.name}" />`;
     tr.querySelector('.celda-desc').innerHTML   = `<input type="text" value="${eq.description}" />`;
@@ -99,7 +99,7 @@ function modoEdicion(tr, eq) {
     tdAccion.querySelector('.btn-cancelar').addEventListener('click', () => render());
 }
 
-// ── ELIMINAR ───────────────────────────────────────────
+// ELIMINAR 
 async function eliminar(id) {
     if (!confirm(`¿Eliminar el equipo con ID ${id}?`)) return;
 
@@ -115,7 +115,7 @@ async function eliminar(id) {
     }
 }
 
-// ── CREAR ──────────────────────────────────────────────
+// CREAR
 btnAgregar.addEventListener('click', async () => {
     const nombre = inpNombre.value.trim();
     const desc   = inpDesc.value.trim();
@@ -140,5 +140,5 @@ btnAgregar.addEventListener('click', async () => {
     }
 });
 
-// ── Carga inicial ──────────────────────────────────────
+// Carga inicial
 cargar();

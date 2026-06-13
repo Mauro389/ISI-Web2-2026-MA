@@ -18,7 +18,7 @@ btnEliminar.addEventListener('click', async () => {
 
     try {
         await teamsService.deleteById(id); // DELETE /teams/{id}
-        resultado.textContent = `✅ Equipo con ID ${id} eliminado.`;
+        resultado.textContent = ` Equipo con ID ${id} eliminado.`;
         inputId.value = '';
     } catch (error) {
         resultado.textContent = `Error: ${error.message}`;
